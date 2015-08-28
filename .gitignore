@@ -1,0 +1,11 @@
+
+# Ignore netbeans folders
+nbproject/private
+nbbuild
+nbdist
+nbactions.xml
+nb-configuration.xml
+.nb-gradle
+
+build/
+dist/
