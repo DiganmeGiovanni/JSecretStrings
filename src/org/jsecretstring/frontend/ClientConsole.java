@@ -5,6 +5,7 @@
  */
 package org.jsecretstring.frontend;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 import org.jsecretstrings.core.Crypter;
 
@@ -40,6 +41,8 @@ public class ClientConsole {
             System.out.println("--> * 0. Finish JSecretStrings");
             System.out.println("--> * 1. Encrypt String");
             System.out.println("--> * 2. Decrypt String");
+            System.out.println("--> * 3. Multiple words high secure encryption");
+            System.out.println("--> * 4. Multiple words high secure decryption");
             
             System.out.print("\nType your selection: ");
             switch(scanner.nextInt()) {
@@ -72,6 +75,43 @@ public class ClientConsole {
                     
                     final String decrypted = Crypter.decrypt(toDecrypt, secretKeyWord);
                     System.out.println("\nDecrypted string: " + decrypted);
+                    break;
+                    
+                case 3:
+                    System.out.println("");
+                    System.out.print("How many Strings do u want to encrypt? ");
+                    scanner.nextLine();
+                    final int wordsToEncryptCount = scanner.nextInt();
+                    
+                    ArrayList<String> wordsToEncrypt = new ArrayList<>();
+                    scanner.nextLine();
+                    for (int i=0; i<wordsToEncryptCount; i++) {
+                        System.out.print("Type string " + i + ": ");
+                        wordsToEncrypt.add(scanner.nextLine());
+                    }
+                    
+                    System.out.print("Super secret keyword: ");
+                    final String secretWord = scanner.nextLine();
+                
+                    final String encWords = Crypter.ittEncrypt(wordsToEncrypt, secretWord);
+                    System.out.println("\nEncrypted string: " + encWords);
+                    break;
+                    
+                case 4:
+                    System.out.println("");
+                    System.out.print("Type string to decrypt: ");
+                    scanner.nextLine();
+                    final String wordsToDecrypt = scanner.nextLine();
+                    
+                    System.out.print("Super secret Keyword: ");
+                    final String superSecretWord = scanner.nextLine();
+                    
+                    final ArrayList<String> decryptedWords = 
+                            Crypter.ittDecrypt(wordsToDecrypt, superSecretWord);
+                    for(String word : decryptedWords) {
+                        System.out.println("String decrypted: " + word);
+                    }
+                    System.out.println("");
                     break;
                 
                 default:
