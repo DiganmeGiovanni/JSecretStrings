@@ -82,6 +82,7 @@ public class Crypter {
      */
     public static String decrypt(String encryptedData, String keyWord) {
         try {
+            encryptedData = encryptedData.replace(" ", "+");
             
             Key key = generateKey(keyWord);
             Cipher c = Cipher.getInstance(ALGORITHM);
@@ -133,6 +134,7 @@ public class Crypter {
      *         in encryption phase
      */
     public static ArrayList<String> ittDecrypt(String encrypted, String keyword) {
+        encrypted = encrypted.replace(" ", "+");
         String[] splited = encrypted.split("@-@-@");
         ArrayList<String> decrypteds = new ArrayList<>();
         
