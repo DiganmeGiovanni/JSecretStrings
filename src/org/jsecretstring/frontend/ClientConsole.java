@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package org.jsecretstring.frontend;
 
 import java.util.ArrayList;
@@ -39,15 +35,15 @@ public class ClientConsole {
             
             System.out.println("--> SELECT A FUNCTION.");
             System.out.println("--> * 0. Finish JSecretStrings");
-            System.out.println("--> * 1. Encrypt String");
-            System.out.println("--> * 2. Decrypt String");
-            System.out.println("--> * 3. Multiple words high secure encryption");
-            System.out.println("--> * 4. Multiple words high secure decryption");
+            System.out.println("--> * 1. Encrypt String using standard algorithms");
+            System.out.println("--> * 2. Decrypt String using standard algorithms");
+            System.out.println("--> * 3. Multiple words encryption using alternative algorithms");
+            System.out.println("--> * 4. Multiple words decryption using alternative algorithms");
             
             System.out.print("\nType your selection: ");
             switch(scanner.nextInt()) {
                 case 0:
-                    System.out.println("Happy coding !!");
+                    System.out.println("--- Good Bye ---");
                     System.exit(0);
                     break;
                 
@@ -79,7 +75,7 @@ public class ClientConsole {
                     
                 case 3:
                     System.out.println("");
-                    System.out.print("How many Strings do u want to encrypt? ");
+                    System.out.print("How many Strings do you want to encrypt? ");
                     scanner.nextLine();
                     final int wordsToEncryptCount = scanner.nextInt();
                     
@@ -93,7 +89,7 @@ public class ClientConsole {
                     System.out.print("Super secret keyword: ");
                     final String secretWord = scanner.nextLine();
                 
-                    final String encWords = Crypter.ittEncrypt(wordsToEncrypt, secretWord);
+                    final String encWords = Crypter.customEncrypt(wordsToEncrypt, secretWord);
                     System.out.println("\nEncrypted string: " + encWords);
                     break;
                     
@@ -107,7 +103,7 @@ public class ClientConsole {
                     final String superSecretWord = scanner.nextLine();
                     
                     final ArrayList<String> decryptedWords = 
-                            Crypter.ittDecrypt(wordsToDecrypt, superSecretWord);
+                            Crypter.customDecrypt(wordsToDecrypt, superSecretWord);
                     for(String word : decryptedWords) {
                         System.out.println("String decrypted: " + word);
                     }
