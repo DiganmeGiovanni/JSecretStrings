@@ -5,6 +5,7 @@ import java.security.Key;
 import java.security.MessageDigest;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
@@ -103,7 +104,7 @@ public class Crypter {
      * @param keyword super secret word to encrypt words
      * @return 
      */
-    public static String customEncrypt(ArrayList<String> wordsToEncrypt, String keyword) {
+    public static String customEncrypt(List<String> wordsToEncrypt, String keyword) {
         StringBuilder result = new StringBuilder();
         for(String word : wordsToEncrypt) {
             
