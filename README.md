@@ -1,7 +1,7 @@
 JSecretStrings
 ==============
 
-A single tool to encryption and decryption of Strings through native Java JCA (Java Cryptography Architecture) classes
+A tool for encryption and decryption of Strings through native Java JCA (Java Cryptography Architecture) classes
 and optionally using custom security layers (Basic funny tricks) on top of Standard Cryptography Architecture.
 
 ## Use cases
